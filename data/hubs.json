@@ -1,0 +1,362 @@
+[
+  {
+    "name": "北京",
+    "tc": "BJP",
+    "city": "北京"
+  },
+  {
+    "name": "北京南",
+    "tc": "VNP",
+    "city": "北京"
+  },
+  {
+    "name": "北京西",
+    "tc": "BXP",
+    "city": "北京"
+  },
+  {
+    "name": "北京北",
+    "tc": "VAP",
+    "city": "北京"
+  },
+  {
+    "name": "上海",
+    "tc": "SHH",
+    "city": "上海"
+  },
+  {
+    "name": "上海虹桥",
+    "tc": "AOH",
+    "city": "上海"
+  },
+  {
+    "name": "上海南",
+    "tc": "SNH",
+    "city": "上海"
+  },
+  {
+    "name": "天津",
+    "tc": "TJP",
+    "city": "天津"
+  },
+  {
+    "name": "天津西",
+    "tc": "TXP",
+    "city": "天津"
+  },
+  {
+    "name": "重庆",
+    "tc": "CQW",
+    "city": "重庆"
+  },
+  {
+    "name": "重庆北",
+    "tc": "CUW",
+    "city": "重庆"
+  },
+  {
+    "name": "重庆西",
+    "tc": "CXW",
+    "city": "重庆"
+  },
+  {
+    "name": "广州",
+    "tc": "GZQ",
+    "city": "广州"
+  },
+  {
+    "name": "广州南",
+    "tc": "IZQ",
+    "city": "广州"
+  },
+  {
+    "name": "广州东",
+    "tc": "GGQ",
+    "city": "广州"
+  },
+  {
+    "name": "深圳",
+    "tc": "SZQ",
+    "city": "深圳"
+  },
+  {
+    "name": "深圳北",
+    "tc": "IOQ",
+    "city": "深圳"
+  },
+  {
+    "name": "杭州",
+    "tc": "HZH",
+    "city": "杭州"
+  },
+  {
+    "name": "杭州东",
+    "tc": "HGH",
+    "city": "杭州"
+  },
+  {
+    "name": "南京",
+    "tc": "NJH",
+    "city": "南京"
+  },
+  {
+    "name": "南京南",
+    "tc": "NKH",
+    "city": "南京"
+  },
+  {
+    "name": "武汉",
+    "tc": "WHN",
+    "city": "武汉"
+  },
+  {
+    "name": "武昌",
+    "tc": "WCN",
+    "city": "武汉"
+  },
+  {
+    "name": "汉口",
+    "tc": "HKN",
+    "city": "武汉"
+  },
+  {
+    "name": "成都",
+    "tc": "CDW",
+    "city": "成都"
+  },
+  {
+    "name": "成都东",
+    "tc": "ICW",
+    "city": "成都"
+  },
+  {
+    "name": "西安",
+    "tc": "XAY",
+    "city": "西安"
+  },
+  {
+    "name": "西安北",
+    "tc": "EAY",
+    "city": "西安"
+  },
+  {
+    "name": "郑州",
+    "tc": "ZZF",
+    "city": "郑州"
+  },
+  {
+    "name": "郑州东",
+    "tc": "ZAF",
+    "city": "郑州"
+  },
+  {
+    "name": "济南",
+    "tc": "JNK",
+    "city": "济南"
+  },
+  {
+    "name": "济南西",
+    "tc": "JGK",
+    "city": "济南"
+  },
+  {
+    "name": "长沙",
+    "tc": "CSQ",
+    "city": "长沙"
+  },
+  {
+    "name": "长沙南",
+    "tc": "CWQ",
+    "city": "长沙"
+  },
+  {
+    "name": "福州",
+    "tc": "FZS",
+    "city": "福州"
+  },
+  {
+    "name": "福州南",
+    "tc": "FYS",
+    "city": "福州"
+  },
+  {
+    "name": "合肥",
+    "tc": "HFH",
+    "city": "合肥"
+  },
+  {
+    "name": "合肥南",
+    "tc": "ENH",
+    "city": "合肥"
+  },
+  {
+    "name": "南昌",
+    "tc": "NCG",
+    "city": "南昌"
+  },
+  {
+    "name": "南昌西",
+    "tc": "NXG",
+    "city": "南昌"
+  },
+  {
+    "name": "石家庄",
+    "tc": "SJP",
+    "city": "石家庄"
+  },
+  {
+    "name": "太原",
+    "tc": "TYV",
+    "city": "太原"
+  },
+  {
+    "name": "太原南",
+    "tc": "TNV",
+    "city": "太原"
+  },
+  {
+    "name": "呼和浩特",
+    "tc": "HHC",
+    "city": "呼和浩特"
+  },
+  {
+    "name": "呼和浩特东",
+    "tc": "NDC",
+    "city": "呼和浩特"
+  },
+  {
+    "name": "银川",
+    "tc": "YIJ",
+    "city": "银川"
+  },
+  {
+    "name": "兰州",
+    "tc": "LZJ",
+    "city": "兰州"
+  },
+  {
+    "name": "兰州西",
+    "tc": "LAJ",
+    "city": "兰州"
+  },
+  {
+    "name": "西宁",
+    "tc": "XNO",
+    "city": "西宁"
+  },
+  {
+    "name": "乌鲁木齐",
+    "tc": "WAR",
+    "city": "乌鲁木齐"
+  },
+  {
+    "name": "拉萨",
+    "tc": "LSO",
+    "city": "拉萨"
+  },
+  {
+    "name": "哈尔滨",
+    "tc": "HBB",
+    "city": "哈尔滨"
+  },
+  {
+    "name": "哈尔滨西",
+    "tc": "VAB",
+    "city": "哈尔滨"
+  },
+  {
+    "name": "长春",
+    "tc": "CCT",
+    "city": "长春"
+  },
+  {
+    "name": "长春西",
+    "tc": "CRT",
+    "city": "长春"
+  },
+  {
+    "name": "沈阳",
+    "tc": "SYT",
+    "city": "沈阳"
+  },
+  {
+    "name": "沈阳北",
+    "tc": "SBT",
+    "city": "沈阳"
+  },
+  {
+    "name": "大连",
+    "tc": "DLT",
+    "city": "大连"
+  },
+  {
+    "name": "大连北",
+    "tc": "DFT",
+    "city": "大连"
+  },
+  {
+    "name": "南宁",
+    "tc": "NNZ",
+    "city": "南宁"
+  },
+  {
+    "name": "南宁东",
+    "tc": "NFZ",
+    "city": "南宁"
+  },
+  {
+    "name": "昆明",
+    "tc": "KMM",
+    "city": "昆明"
+  },
+  {
+    "name": "昆明南",
+    "tc": "KOM",
+    "city": "昆明"
+  },
+  {
+    "name": "贵阳",
+    "tc": "GIW",
+    "city": "贵阳"
+  },
+  {
+    "name": "贵阳北",
+    "tc": "KQW",
+    "city": "贵阳"
+  },
+  {
+    "name": "海口",
+    "tc": "VUQ",
+    "city": "海口"
+  },
+  {
+    "name": "青岛",
+    "tc": "QDK",
+    "city": "青岛"
+  },
+  {
+    "name": "青岛北",
+    "tc": "QHK",
+    "city": "青岛"
+  },
+  {
+    "name": "厦门",
+    "tc": "XMS",
+    "city": "厦门"
+  },
+  {
+    "name": "厦门北",
+    "tc": "XKS",
+    "city": "厦门"
+  },
+  {
+    "name": "宁波",
+    "tc": "NGH",
+    "city": "宁波"
+  },
+  {
+    "name": "苏州",
+    "tc": "SZH",
+    "city": "苏州"
+  }
+]

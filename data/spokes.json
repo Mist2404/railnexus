@@ -1,0 +1,2597 @@
+[
+  {
+    "name": "北京朝阳",
+    "tc": "IFP",
+    "city": "北京"
+  },
+  {
+    "name": "安康",
+    "tc": "AKY",
+    "city": "安康"
+  },
+  {
+    "name": "安庆",
+    "tc": "AQH",
+    "city": "安庆"
+  },
+  {
+    "name": "安庆西",
+    "tc": "AIU",
+    "city": "安庆"
+  },
+  {
+    "name": "安顺",
+    "tc": "ASW",
+    "city": "安顺"
+  },
+  {
+    "name": "鞍山",
+    "tc": "AST",
+    "city": "鞍山"
+  },
+  {
+    "name": "安顺西",
+    "tc": "ASE",
+    "city": "安顺"
+  },
+  {
+    "name": "鞍山西",
+    "tc": "AXT",
+    "city": "鞍山"
+  },
+  {
+    "name": "安阳",
+    "tc": "AYF",
+    "city": "安阳"
+  },
+  {
+    "name": "安阳东",
+    "tc": "ADF",
+    "city": "安阳"
+  },
+  {
+    "name": "蚌埠南",
+    "tc": "BMH",
+    "city": "蚌埠"
+  },
+  {
+    "name": "蚌埠",
+    "tc": "BBH",
+    "city": "蚌埠"
+  },
+  {
+    "name": "白城",
+    "tc": "BCT",
+    "city": "白城"
+  },
+  {
+    "name": "保定东",
+    "tc": "BMP",
+    "city": "保定"
+  },
+  {
+    "name": "保定",
+    "tc": "BDP",
+    "city": "保定"
+  },
+  {
+    "name": "北海",
+    "tc": "BHZ",
+    "city": "北海"
+  },
+  {
+    "name": "毕节",
+    "tc": "BOE",
+    "city": "毕节"
+  },
+  {
+    "name": "宝鸡",
+    "tc": "BJY",
+    "city": "宝鸡"
+  },
+  {
+    "name": "宝鸡南",
+    "tc": "BBY",
+    "city": "宝鸡"
+  },
+  {
+    "name": "百色",
+    "tc": "BIZ",
+    "city": "百色"
+  },
+  {
+    "name": "白山市",
+    "tc": "HJL",
+    "city": "白山"
+  },
+  {
+    "name": "包头东",
+    "tc": "BDC",
+    "city": "包头"
+  },
+  {
+    "name": "包头",
+    "tc": "BTC",
+    "city": "包头"
+  },
+  {
+    "name": "本溪",
+    "tc": "BXT",
+    "city": "本溪"
+  },
+  {
+    "name": "巴彦淖尔",
+    "tc": "FMC",
+    "city": "巴彦淖尔"
+  },
+  {
+    "name": "白银西",
+    "tc": "BXJ",
+    "city": "白银"
+  },
+  {
+    "name": "巴中东",
+    "tc": "BDE",
+    "city": "巴中"
+  },
+  {
+    "name": "巴中",
+    "tc": "IEW",
+    "city": "巴中"
+  },
+  {
+    "name": "滨州",
+    "tc": "BIK",
+    "city": "滨州"
+  },
+  {
+    "name": "亳州",
+    "tc": "BZH",
+    "city": "亳州"
+  },
+  {
+    "name": "亳州南",
+    "tc": "BNU",
+    "city": "亳州"
+  },
+  {
+    "name": "长白山",
+    "tc": "CUL",
+    "city": "延边"
+  },
+  {
+    "name": "长白山西",
+    "tc": "SJL",
+    "city": "白山"
+  },
+  {
+    "name": "常德",
+    "tc": "VGQ",
+    "city": "常德"
+  },
+  {
+    "name": "承德",
+    "tc": "CDP",
+    "city": "承德"
+  },
+  {
+    "name": "承德南",
+    "tc": "IVP",
+    "city": "承德"
+  },
+  {
+    "name": "赤峰",
+    "tc": "CID",
+    "city": "赤峰"
+  },
+  {
+    "name": "赤峰南",
+    "tc": "CFD",
+    "city": "赤峰"
+  },
+  {
+    "name": "朝阳湖",
+    "tc": "CYE",
+    "city": "成都"
+  },
+  {
+    "name": "滁州北",
+    "tc": "CUH",
+    "city": "滁州"
+  },
+  {
+    "name": "常州北",
+    "tc": "ESH",
+    "city": "常州"
+  },
+  {
+    "name": "长治北",
+    "tc": "CBF",
+    "city": "长治"
+  },
+  {
+    "name": "长治东",
+    "tc": "CUF",
+    "city": "长治"
+  },
+  {
+    "name": "池州",
+    "tc": "IYH",
+    "city": "池州"
+  },
+  {
+    "name": "滁州",
+    "tc": "CXH",
+    "city": "滁州"
+  },
+  {
+    "name": "郴州",
+    "tc": "CZQ",
+    "city": "郴州"
+  },
+  {
+    "name": "沧州",
+    "tc": "COP",
+    "city": "沧州"
+  },
+  {
+    "name": "常州",
+    "tc": "CZH",
+    "city": "常州"
+  },
+  {
+    "name": "长治",
+    "tc": "CZF",
+    "city": "长治"
+  },
+  {
+    "name": "崇左南",
+    "tc": "COZ",
+    "city": "崇左"
+  },
+  {
+    "name": "崇左",
+    "tc": "CZZ",
+    "city": "崇左"
+  },
+  {
+    "name": "郴州西",
+    "tc": "ICQ",
+    "city": "郴州"
+  },
+  {
+    "name": "沧州西",
+    "tc": "CBP",
+    "city": "沧州"
+  },
+  {
+    "name": "丹东",
+    "tc": "DUT",
+    "city": "丹东"
+  },
+  {
+    "name": "东莞东",
+    "tc": "DMQ",
+    "city": "东莞"
+  },
+  {
+    "name": "东莞南",
+    "tc": "DNA",
+    "city": "东莞"
+  },
+  {
+    "name": "东莞",
+    "tc": "RTQ",
+    "city": "东莞"
+  },
+  {
+    "name": "东莞西",
+    "tc": "WGQ",
+    "city": "东莞"
+  },
+  {
+    "name": "大庆东",
+    "tc": "LFX",
+    "city": "大庆"
+  },
+  {
+    "name": "大庆",
+    "tc": "DZX",
+    "city": "大庆"
+  },
+  {
+    "name": "大庆西",
+    "tc": "RHX",
+    "city": "大庆"
+  },
+  {
+    "name": "砀山南",
+    "tc": "PRH",
+    "city": "宿州"
+  },
+  {
+    "name": "大同南",
+    "tc": "DMV",
+    "city": "大同"
+  },
+  {
+    "name": "大同",
+    "tc": "DTV",
+    "city": "大同"
+  },
+  {
+    "name": "定西北",
+    "tc": "DNJ",
+    "city": "定西"
+  },
+  {
+    "name": "定西",
+    "tc": "DSJ",
+    "city": "定西"
+  },
+  {
+    "name": "德阳",
+    "tc": "DYW",
+    "city": "德阳"
+  },
+  {
+    "name": "东营",
+    "tc": "DPK",
+    "city": "东营"
+  },
+  {
+    "name": "东营南",
+    "tc": "DOK",
+    "city": "东营"
+  },
+  {
+    "name": "德州东",
+    "tc": "DIP",
+    "city": "德州"
+  },
+  {
+    "name": "达州",
+    "tc": "RXW",
+    "city": "达州"
+  },
+  {
+    "name": "德州",
+    "tc": "DZP",
+    "city": "德州"
+  },
+  {
+    "name": "鄂尔多斯",
+    "tc": "EEC",
+    "city": "鄂尔多斯"
+  },
+  {
+    "name": "峨眉山",
+    "tc": "IXW",
+    "city": "乐山"
+  },
+  {
+    "name": "恩施",
+    "tc": "ESN",
+    "city": "恩施"
+  },
+  {
+    "name": "鄂州",
+    "tc": "ECN",
+    "city": "鄂州"
+  },
+  {
+    "name": "防城港北",
+    "tc": "FBZ",
+    "city": "防城港"
+  },
+  {
+    "name": "抚顺",
+    "tc": "FET",
+    "city": "抚顺"
+  },
+  {
+    "name": "佛山",
+    "tc": "FSQ",
+    "city": "佛山"
+  },
+  {
+    "name": "佛山西",
+    "tc": "FOQ",
+    "city": "佛山"
+  },
+  {
+    "name": "阜新",
+    "tc": "FOT",
+    "city": "阜新"
+  },
+  {
+    "name": "阜新南",
+    "tc": "FXD",
+    "city": "阜新"
+  },
+  {
+    "name": "阜阳",
+    "tc": "FYH",
+    "city": "阜阳"
+  },
+  {
+    "name": "阜阳西",
+    "tc": "FXU",
+    "city": "阜阳"
+  },
+  {
+    "name": "抚州",
+    "tc": "FZG",
+    "city": "抚州"
+  },
+  {
+    "name": "广安南",
+    "tc": "VUW",
+    "city": "广安"
+  },
+  {
+    "name": "广安",
+    "tc": "VJW",
+    "city": "广安"
+  },
+  {
+    "name": "贵港",
+    "tc": "GGZ",
+    "city": "贵港"
+  },
+  {
+    "name": "桂林北",
+    "tc": "GBZ",
+    "city": "桂林"
+  },
+  {
+    "name": "桂林",
+    "tc": "GLZ",
+    "city": "桂林"
+  },
+  {
+    "name": "固原",
+    "tc": "GUJ",
+    "city": "固原"
+  },
+  {
+    "name": "广元",
+    "tc": "GYW",
+    "city": "广元"
+  },
+  {
+    "name": "赣州",
+    "tc": "GZG",
+    "city": "赣州"
+  },
+  {
+    "name": "赣州西",
+    "tc": "GOG",
+    "city": "赣州"
+  },
+  {
+    "name": "淮安东",
+    "tc": "HAU",
+    "city": "淮安"
+  },
+  {
+    "name": "淮安",
+    "tc": "AUH",
+    "city": "淮安"
+  },
+  {
+    "name": "淮北",
+    "tc": "HRH",
+    "city": "淮北"
+  },
+  {
+    "name": "河池西",
+    "tc": "HIZ",
+    "city": "河池"
+  },
+  {
+    "name": "邯郸",
+    "tc": "HDP",
+    "city": "邯郸"
+  },
+  {
+    "name": "邯郸东",
+    "tc": "HPP",
+    "city": "邯郸"
+  },
+  {
+    "name": "鹤岗",
+    "tc": "HGB",
+    "city": "鹤岗"
+  },
+  {
+    "name": "黄冈东",
+    "tc": "KAN",
+    "city": "黄冈"
+  },
+  {
+    "name": "黑河",
+    "tc": "HJB",
+    "city": "黑河"
+  },
+  {
+    "name": "怀化南",
+    "tc": "KAQ",
+    "city": "怀化"
+  },
+  {
+    "name": "怀化",
+    "tc": "HHQ",
+    "city": "怀化"
+  },
+  {
+    "name": "葫芦岛北",
+    "tc": "HPD",
+    "city": "葫芦岛"
+  },
+  {
+    "name": "葫芦岛",
+    "tc": "HLD",
+    "city": "葫芦岛"
+  },
+  {
+    "name": "哈密",
+    "tc": "HMR",
+    "city": "哈密"
+  },
+  {
+    "name": "淮南",
+    "tc": "HAH",
+    "city": "淮南"
+  },
+  {
+    "name": "淮南东",
+    "tc": "HOH",
+    "city": "淮南"
+  },
+  {
+    "name": "淮南南",
+    "tc": "HNU",
+    "city": "淮南"
+  },
+  {
+    "name": "衡水北",
+    "tc": "IHP",
+    "city": "衡水"
+  },
+  {
+    "name": "黄山北",
+    "tc": "NYH",
+    "city": "黄山"
+  },
+  {
+    "name": "黄石东",
+    "tc": "OSN",
+    "city": "黄石"
+  },
+  {
+    "name": "衡水",
+    "tc": "HSP",
+    "city": "衡水"
+  },
+  {
+    "name": "黄石",
+    "tc": "HSN",
+    "city": "黄石"
+  },
+  {
+    "name": "黄山",
+    "tc": "HKH",
+    "city": "黄山"
+  },
+  {
+    "name": "花山南",
+    "tc": "KNN",
+    "city": "武汉"
+  },
+  {
+    "name": "黄山西",
+    "tc": "HWU",
+    "city": "黄山"
+  },
+  {
+    "name": "衡阳",
+    "tc": "HYQ",
+    "city": "衡阳"
+  },
+  {
+    "name": "河源东",
+    "tc": "HEA",
+    "city": "河源"
+  },
+  {
+    "name": "衡阳东",
+    "tc": "HVQ",
+    "city": "衡阳"
+  },
+  {
+    "name": "河源",
+    "tc": "VIQ",
+    "city": "河源"
+  },
+  {
+    "name": "惠州北",
+    "tc": "HUA",
+    "city": "惠州"
+  },
+  {
+    "name": "菏泽东",
+    "tc": "KDK",
+    "city": "菏泽"
+  },
+  {
+    "name": "菏泽",
+    "tc": "HIK",
+    "city": "菏泽"
+  },
+  {
+    "name": "贺州",
+    "tc": "HXZ",
+    "city": "贺州"
+  },
+  {
+    "name": "湖州",
+    "tc": "VZH",
+    "city": "湖州"
+  },
+  {
+    "name": "汉中",
+    "tc": "HOY",
+    "city": "汉中"
+  },
+  {
+    "name": "惠州",
+    "tc": "HCQ",
+    "city": "惠州"
+  },
+  {
+    "name": "吉安",
+    "tc": "VAG",
+    "city": "吉安"
+  },
+  {
+    "name": "吉安西",
+    "tc": "JIG",
+    "city": "吉安"
+  },
+  {
+    "name": "晋城东",
+    "tc": "JGF",
+    "city": "晋城"
+  },
+  {
+    "name": "金昌",
+    "tc": "JCJ",
+    "city": "金昌"
+  },
+  {
+    "name": "晋城",
+    "tc": "JCF",
+    "city": "晋城"
+  },
+  {
+    "name": "景德镇北",
+    "tc": "JDG",
+    "city": "景德镇"
+  },
+  {
+    "name": "景德镇",
+    "tc": "JCG",
+    "city": "景德镇"
+  },
+  {
+    "name": "金华南",
+    "tc": "RNH",
+    "city": "金华"
+  },
+  {
+    "name": "金华",
+    "tc": "JBH",
+    "city": "金华"
+  },
+  {
+    "name": "金华镇",
+    "tc": "JZE",
+    "city": "贵阳"
+  },
+  {
+    "name": "九江",
+    "tc": "JJG",
+    "city": "九江"
+  },
+  {
+    "name": "吉林",
+    "tc": "JLL",
+    "city": "吉林"
+  },
+  {
+    "name": "江门",
+    "tc": "JOQ",
+    "city": "江门"
+  },
+  {
+    "name": "荆门",
+    "tc": "JMN",
+    "city": "荆门"
+  },
+  {
+    "name": "佳木斯",
+    "tc": "JMB",
+    "city": "佳木斯"
+  },
+  {
+    "name": "荆门西",
+    "tc": "MXN",
+    "city": "荆门"
+  },
+  {
+    "name": "济宁",
+    "tc": "JIK",
+    "city": "济宁"
+  },
+  {
+    "name": "酒泉南",
+    "tc": "JNJ",
+    "city": "酒泉"
+  },
+  {
+    "name": "酒泉",
+    "tc": "JQJ",
+    "city": "酒泉"
+  },
+  {
+    "name": "嘉兴",
+    "tc": "JXH",
+    "city": "嘉兴"
+  },
+  {
+    "name": "鸡西",
+    "tc": "JXB",
+    "city": "鸡西"
+  },
+  {
+    "name": "嘉兴南",
+    "tc": "EPH",
+    "city": "嘉兴"
+  },
+  {
+    "name": "鸡西西",
+    "tc": "JAB",
+    "city": "鸡西"
+  },
+  {
+    "name": "嘉峪关",
+    "tc": "JGJ",
+    "city": "嘉峪关"
+  },
+  {
+    "name": "嘉峪关南",
+    "tc": "JBJ",
+    "city": "嘉峪关"
+  },
+  {
+    "name": "锦州北",
+    "tc": "JFT",
+    "city": "锦州"
+  },
+  {
+    "name": "荆州",
+    "tc": "JBN",
+    "city": "荆州"
+  },
+  {
+    "name": "锦州",
+    "tc": "JZD",
+    "city": "锦州"
+  },
+  {
+    "name": "锦州南",
+    "tc": "JOD",
+    "city": "锦州"
+  },
+  {
+    "name": "焦作",
+    "tc": "JOF",
+    "city": "焦作"
+  },
+  {
+    "name": "焦作西",
+    "tc": "JIF",
+    "city": "焦作"
+  },
+  {
+    "name": "开封北",
+    "tc": "KBF",
+    "city": "开封"
+  },
+  {
+    "name": "开封",
+    "tc": "KFF",
+    "city": "开封"
+  },
+  {
+    "name": "克拉玛依",
+    "tc": "KHR",
+    "city": "克拉玛依"
+  },
+  {
+    "name": "昆山南",
+    "tc": "KNH",
+    "city": "苏州"
+  },
+  {
+    "name": "六安",
+    "tc": "UAH",
+    "city": "六安"
+  },
+  {
+    "name": "来宾北",
+    "tc": "UCZ",
+    "city": "来宾"
+  },
+  {
+    "name": "临沧",
+    "tc": "LXM",
+    "city": "临沧"
+  },
+  {
+    "name": "聊城",
+    "tc": "UCK",
+    "city": "聊城"
+  },
+  {
+    "name": "聊城西",
+    "tc": "VXK",
+    "city": "聊城"
+  },
+  {
+    "name": "娄底",
+    "tc": "LDQ",
+    "city": "娄底"
+  },
+  {
+    "name": "娄底南",
+    "tc": "UOQ",
+    "city": "娄底"
+  },
+  {
+    "name": "廊坊",
+    "tc": "LJP",
+    "city": "廊坊"
+  },
+  {
+    "name": "廊坊北",
+    "tc": "LBI",
+    "city": "廊坊"
+  },
+  {
+    "name": "临汾",
+    "tc": "LFV",
+    "city": "临汾"
+  },
+  {
+    "name": "临汾西",
+    "tc": "LXV",
+    "city": "临汾"
+  },
+  {
+    "name": "廊坊西",
+    "tc": "LFI",
+    "city": "廊坊"
+  },
+  {
+    "name": "漯河",
+    "tc": "LON",
+    "city": "漯河"
+  },
+  {
+    "name": "漯河西",
+    "tc": "LBN",
+    "city": "漯河"
+  },
+  {
+    "name": "丽江",
+    "tc": "LHM",
+    "city": "丽江"
+  },
+  {
+    "name": "吕梁",
+    "tc": "LHV",
+    "city": "吕梁"
+  },
+  {
+    "name": "陇南",
+    "tc": "INJ",
+    "city": "陇南"
+  },
+  {
+    "name": "辽宁朝阳",
+    "tc": "VET",
+    "city": "朝阳"
+  },
+  {
+    "name": "六盘水",
+    "tc": "UMW",
+    "city": "六盘水"
+  },
+  {
+    "name": "乐山",
+    "tc": "IVW",
+    "city": "乐山"
+  },
+  {
+    "name": "丽水",
+    "tc": "USH",
+    "city": "丽水"
+  },
+  {
+    "name": "辽阳",
+    "tc": "LYT",
+    "city": "辽阳"
+  },
+  {
+    "name": "龙岩",
+    "tc": "LYS",
+    "city": "龙岩"
+  },
+  {
+    "name": "洛阳",
+    "tc": "LYF",
+    "city": "洛阳"
+  },
+  {
+    "name": "临沂北",
+    "tc": "UMK",
+    "city": "临沂"
+  },
+  {
+    "name": "连云港东",
+    "tc": "UKH",
+    "city": "连云港"
+  },
+  {
+    "name": "洛阳东",
+    "tc": "LDF",
+    "city": "洛阳"
+  },
+  {
+    "name": "连云港",
+    "tc": "UIH",
+    "city": "连云港"
+  },
+  {
+    "name": "临沂",
+    "tc": "LVK",
+    "city": "临沂"
+  },
+  {
+    "name": "洛阳龙门",
+    "tc": "LLF",
+    "city": "洛阳"
+  },
+  {
+    "name": "辽源",
+    "tc": "LYL",
+    "city": "辽源"
+  },
+  {
+    "name": "泸州",
+    "tc": "LUE",
+    "city": "泸州"
+  },
+  {
+    "name": "林芝",
+    "tc": "LZO",
+    "city": "林芝"
+  },
+  {
+    "name": "柳州",
+    "tc": "LZZ",
+    "city": "柳州"
+  },
+  {
+    "name": "马鞍山东",
+    "tc": "OMH",
+    "city": "马鞍山"
+  },
+  {
+    "name": "牡丹江",
+    "tc": "MDB",
+    "city": "牡丹江"
+  },
+  {
+    "name": "茂名",
+    "tc": "MDQ",
+    "city": "茂名"
+  },
+  {
+    "name": "茂名南",
+    "tc": "MRQ",
+    "city": "茂名"
+  },
+  {
+    "name": "茂名西",
+    "tc": "MMZ",
+    "city": "茂名"
+  },
+  {
+    "name": "眉山东",
+    "tc": "IUW",
+    "city": "眉山"
+  },
+  {
+    "name": "绵阳",
+    "tc": "MYW",
+    "city": "绵阳"
+  },
+  {
+    "name": "梅州",
+    "tc": "MOQ",
+    "city": "梅州"
+  },
+  {
+    "name": "梅州西",
+    "tc": "MXA",
+    "city": "梅州"
+  },
+  {
+    "name": "南充北",
+    "tc": "NCE",
+    "city": "南充"
+  },
+  {
+    "name": "南充",
+    "tc": "NCW",
+    "city": "南充"
+  },
+  {
+    "name": "宁德",
+    "tc": "NES",
+    "city": "宁德"
+  },
+  {
+    "name": "内江北",
+    "tc": "NKW",
+    "city": "内江"
+  },
+  {
+    "name": "内江",
+    "tc": "NJW",
+    "city": "内江"
+  },
+  {
+    "name": "南平市",
+    "tc": "NOS",
+    "city": "南平"
+  },
+  {
+    "name": "那曲",
+    "tc": "NQO",
+    "city": "那曲"
+  },
+  {
+    "name": "南通",
+    "tc": "NUH",
+    "city": "南通"
+  },
+  {
+    "name": "南通西",
+    "tc": "NXU",
+    "city": "南通"
+  },
+  {
+    "name": "南阳",
+    "tc": "NFF",
+    "city": "南阳"
+  },
+  {
+    "name": "南阳东",
+    "tc": "NOF",
+    "city": "南阳"
+  },
+  {
+    "name": "南阳寨",
+    "tc": "NYF",
+    "city": "郑州"
+  },
+  {
+    "name": "平顶山",
+    "tc": "PEN",
+    "city": "平顶山"
+  },
+  {
+    "name": "平顶山西",
+    "tc": "PDF",
+    "city": "平顶山"
+  },
+  {
+    "name": "普洱",
+    "tc": "PEM",
+    "city": "普洱"
+  },
+  {
+    "name": "盘锦北",
+    "tc": "PBD",
+    "city": "盘锦"
+  },
+  {
+    "name": "盘锦",
+    "tc": "PVD",
+    "city": "盘锦"
+  },
+  {
+    "name": "平凉",
+    "tc": "PIJ",
+    "city": "平凉"
+  },
+  {
+    "name": "平凉南",
+    "tc": "POJ",
+    "city": "平凉"
+  },
+  {
+    "name": "莆田",
+    "tc": "PTS",
+    "city": "莆田"
+  },
+  {
+    "name": "萍乡北",
+    "tc": "PBG",
+    "city": "萍乡"
+  },
+  {
+    "name": "萍乡",
+    "tc": "PXG",
+    "city": "萍乡"
+  },
+  {
+    "name": "濮阳",
+    "tc": "PYF",
+    "city": "濮阳"
+  },
+  {
+    "name": "濮阳东",
+    "tc": "PUF",
+    "city": "濮阳"
+  },
+  {
+    "name": "攀枝花",
+    "tc": "PRW",
+    "city": "攀枝花"
+  },
+  {
+    "name": "攀枝花南",
+    "tc": "PNE",
+    "city": "攀枝花"
+  },
+  {
+    "name": "秦皇岛",
+    "tc": "QTP",
+    "city": "秦皇岛"
+  },
+  {
+    "name": "曲靖北",
+    "tc": "QBM",
+    "city": "曲靖"
+  },
+  {
+    "name": "曲靖",
+    "tc": "QJM",
+    "city": "曲靖"
+  },
+  {
+    "name": "齐齐哈尔",
+    "tc": "QHX",
+    "city": "齐齐哈尔"
+  },
+  {
+    "name": "齐齐哈尔南",
+    "tc": "QNB",
+    "city": "齐齐哈尔"
+  },
+  {
+    "name": "七台河",
+    "tc": "QTB",
+    "city": "七台河"
+  },
+  {
+    "name": "七台河西",
+    "tc": "QXB",
+    "city": "七台河"
+  },
+  {
+    "name": "庆阳",
+    "tc": "QOJ",
+    "city": "庆阳"
+  },
+  {
+    "name": "清远",
+    "tc": "QBQ",
+    "city": "清远"
+  },
+  {
+    "name": "钦州东",
+    "tc": "QDZ",
+    "city": "钦州"
+  },
+  {
+    "name": "衢州",
+    "tc": "QEH",
+    "city": "衢州"
+  },
+  {
+    "name": "泉州",
+    "tc": "QYS",
+    "city": "泉州"
+  },
+  {
+    "name": "衢州西",
+    "tc": "QXU",
+    "city": "衢州"
+  },
+  {
+    "name": "日喀则",
+    "tc": "RKO",
+    "city": "日喀则"
+  },
+  {
+    "name": "乳山南",
+    "tc": "REK",
+    "city": "威海"
+  },
+  {
+    "name": "日照",
+    "tc": "RZK",
+    "city": "日照"
+  },
+  {
+    "name": "日照西",
+    "tc": "KZK",
+    "city": "日照"
+  },
+  {
+    "name": "韶关东",
+    "tc": "SGQ",
+    "city": "韶关"
+  },
+  {
+    "name": "韶关",
+    "tc": "SNQ",
+    "city": "韶关"
+  },
+  {
+    "name": "绥化",
+    "tc": "SHB",
+    "city": "绥化"
+  },
+  {
+    "name": "石景山南",
+    "tc": "SRP",
+    "city": "北京"
+  },
+  {
+    "name": "商洛",
+    "tc": "OLY",
+    "city": "商洛"
+  },
+  {
+    "name": "三明北",
+    "tc": "SHS",
+    "city": "三明"
+  },
+  {
+    "name": "三明",
+    "tc": "SVS",
+    "city": "三明"
+  },
+  {
+    "name": "三门峡南",
+    "tc": "SCF",
+    "city": "三门峡"
+  },
+  {
+    "name": "三门峡西",
+    "tc": "SXF",
+    "city": "三门峡"
+  },
+  {
+    "name": "三门峡",
+    "tc": "SMF",
+    "city": "三门峡"
+  },
+  {
+    "name": "遂宁",
+    "tc": "NIW",
+    "city": "遂宁"
+  },
+  {
+    "name": "四平东",
+    "tc": "PPT",
+    "city": "四平"
+  },
+  {
+    "name": "四平",
+    "tc": "SPT",
+    "city": "四平"
+  },
+  {
+    "name": "宿迁",
+    "tc": "SQU",
+    "city": "宿迁"
+  },
+  {
+    "name": "商丘",
+    "tc": "SQF",
+    "city": "商丘"
+  },
+  {
+    "name": "上饶",
+    "tc": "SRG",
+    "city": "上饶"
+  },
+  {
+    "name": "韶山南",
+    "tc": "INQ",
+    "city": "湘潭"
+  },
+  {
+    "name": "汕头南",
+    "tc": "SNA",
+    "city": "汕头"
+  },
+  {
+    "name": "汕头",
+    "tc": "OTQ",
+    "city": "汕头"
+  },
+  {
+    "name": "汕尾",
+    "tc": "OGQ",
+    "city": "汕尾"
+  },
+  {
+    "name": "绍兴北",
+    "tc": "SLH",
+    "city": "绍兴"
+  },
+  {
+    "name": "绍兴东",
+    "tc": "SSH",
+    "city": "绍兴"
+  },
+  {
+    "name": "绍兴",
+    "tc": "SOH",
+    "city": "绍兴"
+  },
+  {
+    "name": "三亚",
+    "tc": "SEQ",
+    "city": "三亚"
+  },
+  {
+    "name": "邵阳",
+    "tc": "SYQ",
+    "city": "邵阳"
+  },
+  {
+    "name": "十堰",
+    "tc": "SNN",
+    "city": "十堰"
+  },
+  {
+    "name": "十堰东",
+    "tc": "OUN",
+    "city": "十堰"
+  },
+  {
+    "name": "双鸭山",
+    "tc": "SSB",
+    "city": "双鸭山"
+  },
+  {
+    "name": "松原",
+    "tc": "VYT",
+    "city": "松原"
+  },
+  {
+    "name": "双鸭山西",
+    "tc": "OXB",
+    "city": "双鸭山"
+  },
+  {
+    "name": "宿州东",
+    "tc": "SRH",
+    "city": "宿州"
+  },
+  {
+    "name": "朔州",
+    "tc": "SUV",
+    "city": "朔州"
+  },
+  {
+    "name": "随州",
+    "tc": "SZN",
+    "city": "随州"
+  },
+  {
+    "name": "宿州",
+    "tc": "OXH",
+    "city": "宿州"
+  },
+  {
+    "name": "随州南",
+    "tc": "ONN",
+    "city": "随州"
+  },
+  {
+    "name": "石嘴山南",
+    "tc": "QQJ",
+    "city": "石嘴山"
+  },
+  {
+    "name": "泰安",
+    "tc": "TMK",
+    "city": "泰安"
+  },
+  {
+    "name": "铜川东",
+    "tc": "TCY",
+    "city": "铜川"
+  },
+  {
+    "name": "铜川",
+    "tc": "TBY",
+    "city": "铜川"
+  },
+  {
+    "name": "通化",
+    "tc": "THL",
+    "city": "通化"
+  },
+  {
+    "name": "吐鲁番北",
+    "tc": "TAR",
+    "city": "吐鲁番"
+  },
+  {
+    "name": "吐鲁番",
+    "tc": "TFR",
+    "city": "吐鲁番"
+  },
+  {
+    "name": "通辽",
+    "tc": "TLD",
+    "city": "通辽"
+  },
+  {
+    "name": "铜陵",
+    "tc": "TJH",
+    "city": "铜陵"
+  },
+  {
+    "name": "铁岭",
+    "tc": "TLT",
+    "city": "铁岭"
+  },
+  {
+    "name": "铁岭西",
+    "tc": "PXT",
+    "city": "铁岭"
+  },
+  {
+    "name": "铜仁",
+    "tc": "RDQ",
+    "city": "铜仁"
+  },
+  {
+    "name": "铜仁南",
+    "tc": "TNW",
+    "city": "铜仁"
+  },
+  {
+    "name": "唐山北",
+    "tc": "FUP",
+    "city": "唐山"
+  },
+  {
+    "name": "唐山",
+    "tc": "TSP",
+    "city": "唐山"
+  },
+  {
+    "name": "天水",
+    "tc": "TSJ",
+    "city": "天水"
+  },
+  {
+    "name": "天水南",
+    "tc": "TIJ",
+    "city": "天水"
+  },
+  {
+    "name": "台州",
+    "tc": "TEU",
+    "city": "台州"
+  },
+  {
+    "name": "泰州",
+    "tc": "UTH",
+    "city": "泰州"
+  },
+  {
+    "name": "台州西",
+    "tc": "TZH",
+    "city": "台州"
+  },
+  {
+    "name": "潍坊",
+    "tc": "WFK",
+    "city": "潍坊"
+  },
+  {
+    "name": "威海",
+    "tc": "WKK",
+    "city": "威海"
+  },
+  {
+    "name": "乌海",
+    "tc": "IAC",
+    "city": "乌海"
+  },
+  {
+    "name": "乌海南",
+    "tc": "VNC",
+    "city": "乌海"
+  },
+  {
+    "name": "芜湖",
+    "tc": "WHH",
+    "city": "芜湖"
+  },
+  {
+    "name": "乌海西",
+    "tc": "WXC",
+    "city": "乌海"
+  },
+  {
+    "name": "乌兰察布",
+    "tc": "WPC",
+    "city": "乌兰察布"
+  },
+  {
+    "name": "渭南",
+    "tc": "WNY",
+    "city": "渭南"
+  },
+  {
+    "name": "渭南北",
+    "tc": "WBY",
+    "city": "渭南"
+  },
+  {
+    "name": "渭南西",
+    "tc": "WXY",
+    "city": "渭南"
+  },
+  {
+    "name": "武威东",
+    "tc": "WDJ",
+    "city": "武威"
+  },
+  {
+    "name": "武威",
+    "tc": "WUJ",
+    "city": "武威"
+  },
+  {
+    "name": "武威南",
+    "tc": "WWJ",
+    "city": "武威"
+  },
+  {
+    "name": "无锡东",
+    "tc": "WGH",
+    "city": "无锡"
+  },
+  {
+    "name": "无锡",
+    "tc": "WXH",
+    "city": "无锡"
+  },
+  {
+    "name": "梧州",
+    "tc": "WZZ",
+    "city": "梧州"
+  },
+  {
+    "name": "吴忠",
+    "tc": "WVJ",
+    "city": "吴忠"
+  },
+  {
+    "name": "温州",
+    "tc": "RZH",
+    "city": "温州"
+  },
+  {
+    "name": "梧州南",
+    "tc": "WBZ",
+    "city": "梧州"
+  },
+  {
+    "name": "温州南",
+    "tc": "VRH",
+    "city": "温州"
+  },
+  {
+    "name": "许昌东",
+    "tc": "XVF",
+    "city": "许昌"
+  },
+  {
+    "name": "宣城",
+    "tc": "ECH",
+    "city": "宣城"
+  },
+  {
+    "name": "许昌",
+    "tc": "XCF",
+    "city": "许昌"
+  },
+  {
+    "name": "孝感北",
+    "tc": "XJN",
+    "city": "孝感"
+  },
+  {
+    "name": "孝感东",
+    "tc": "GDN",
+    "city": "孝感"
+  },
+  {
+    "name": "咸宁南",
+    "tc": "UNN",
+    "city": "咸宁"
+  },
+  {
+    "name": "湘潭",
+    "tc": "XTQ",
+    "city": "湘潭"
+  },
+  {
+    "name": "邢台东",
+    "tc": "EDP",
+    "city": "邢台"
+  },
+  {
+    "name": "新乡东",
+    "tc": "EGF",
+    "city": "新乡"
+  },
+  {
+    "name": "新乡",
+    "tc": "XXF",
+    "city": "新乡"
+  },
+  {
+    "name": "信阳",
+    "tc": "XUN",
+    "city": "信阳"
+  },
+  {
+    "name": "咸阳",
+    "tc": "XYY",
+    "city": "咸阳"
+  },
+  {
+    "name": "襄阳",
+    "tc": "XFN",
+    "city": "襄阳"
+  },
+  {
+    "name": "新余北",
+    "tc": "XBG",
+    "city": "新余"
+  },
+  {
+    "name": "信阳东",
+    "tc": "OYN",
+    "city": "信阳"
+  },
+  {
+    "name": "襄阳东",
+    "tc": "EKN",
+    "city": "襄阳"
+  },
+  {
+    "name": "新余",
+    "tc": "XUG",
+    "city": "新余"
+  },
+  {
+    "name": "咸阳西",
+    "tc": "XOY",
+    "city": "咸阳"
+  },
+  {
+    "name": "徐州东",
+    "tc": "UUH",
+    "city": "徐州"
+  },
+  {
+    "name": "忻州",
+    "tc": "XXV",
+    "city": "忻州"
+  },
+  {
+    "name": "徐州",
+    "tc": "XCH",
+    "city": "徐州"
+  },
+  {
+    "name": "忻州西",
+    "tc": "IXV",
+    "city": "忻州"
+  },
+  {
+    "name": "雅安",
+    "tc": "YAE",
+    "city": "雅安"
+  },
+  {
+    "name": "延安",
+    "tc": "YWY",
+    "city": "延安"
+  },
+  {
+    "name": "宜宾西",
+    "tc": "YXE",
+    "city": "宜宾"
+  },
+  {
+    "name": "运城北",
+    "tc": "ABV",
+    "city": "运城"
+  },
+  {
+    "name": "宜昌北",
+    "tc": "ABN",
+    "city": "宜昌"
+  },
+  {
+    "name": "盐城北",
+    "tc": "AEH",
+    "city": "盐城"
+  },
+  {
+    "name": "宜昌东",
+    "tc": "HAN",
+    "city": "宜昌"
+  },
+  {
+    "name": "宜春",
+    "tc": "YEG",
+    "city": "宜春"
+  },
+  {
+    "name": "运城",
+    "tc": "YNV",
+    "city": "运城"
+  },
+  {
+    "name": "宜昌",
+    "tc": "YCN",
+    "city": "宜昌"
+  },
+  {
+    "name": "盐城",
+    "tc": "AFH",
+    "city": "盐城"
+  },
+  {
+    "name": "伊春",
+    "tc": "YCB",
+    "city": "伊春"
+  },
+  {
+    "name": "云浮东",
+    "tc": "IXQ",
+    "city": "云浮"
+  },
+  {
+    "name": "阳江",
+    "tc": "WRQ",
+    "city": "阳江"
+  },
+  {
+    "name": "营口东",
+    "tc": "YGT",
+    "city": "营口"
+  },
+  {
+    "name": "营口",
+    "tc": "YKT",
+    "city": "营口"
+  },
+  {
+    "name": "玉林北",
+    "tc": "ABZ",
+    "city": "玉林"
+  },
+  {
+    "name": "玉林",
+    "tc": "YLZ",
+    "city": "玉林"
+  },
+  {
+    "name": "榆林",
+    "tc": "ALY",
+    "city": "榆林"
+  },
+  {
+    "name": "阳泉北",
+    "tc": "YPP",
+    "city": "阳泉"
+  },
+  {
+    "name": "阳泉东",
+    "tc": "AYP",
+    "city": "阳泉"
+  },
+  {
+    "name": "阳泉曲",
+    "tc": "YYV",
+    "city": "吕梁"
+  },
+  {
+    "name": "阳泉",
+    "tc": "AQP",
+    "city": "阳泉"
+  },
+  {
+    "name": "玉山南",
+    "tc": "YGG",
+    "city": "上饶"
+  },
+  {
+    "name": "烟台",
+    "tc": "YAK",
+    "city": "烟台"
+  },
+  {
+    "name": "鹰潭",
+    "tc": "YTG",
+    "city": "鹰潭"
+  },
+  {
+    "name": "鹰潭北",
+    "tc": "YKG",
+    "city": "鹰潭"
+  },
+  {
+    "name": "烟台南",
+    "tc": "YLK",
+    "city": "烟台"
+  },
+  {
+    "name": "玉溪",
+    "tc": "AXM",
+    "city": "玉溪"
+  },
+  {
+    "name": "益阳",
+    "tc": "AEQ",
+    "city": "益阳"
+  },
+  {
+    "name": "岳阳",
+    "tc": "YYQ",
+    "city": "岳阳"
+  },
+  {
+    "name": "岳阳东",
+    "tc": "YIQ",
+    "city": "岳阳"
+  },
+  {
+    "name": "益阳南",
+    "tc": "YAA",
+    "city": "益阳"
+  },
+  {
+    "name": "扬州东",
+    "tc": "YDU",
+    "city": "扬州"
+  },
+  {
+    "name": "永州",
+    "tc": "AOQ",
+    "city": "永州"
+  },
+  {
+    "name": "扬州",
+    "tc": "YLH",
+    "city": "扬州"
+  },
+  {
+    "name": "淄博北",
+    "tc": "ZRK",
+    "city": "淄博"
+  },
+  {
+    "name": "淄博",
+    "tc": "ZBK",
+    "city": "淄博"
+  },
+  {
+    "name": "自贡北",
+    "tc": "ZGW",
+    "city": "自贡"
+  },
+  {
+    "name": "自贡",
+    "tc": "ZGE",
+    "city": "自贡"
+  },
+  {
+    "name": "珠海",
+    "tc": "ZHQ",
+    "city": "珠海"
+  },
+  {
+    "name": "珠海北",
+    "tc": "ZIQ",
+    "city": "珠海"
+  },
+  {
+    "name": "珠海机场",
+    "tc": "ZJA",
+    "city": "珠海"
+  },
+  {
+    "name": "珠海长隆",
+    "tc": "ZLA",
+    "city": "珠海"
+  },
+  {
+    "name": "湛江北",
+    "tc": "ZMQ",
+    "city": "湛江"
+  },
+  {
+    "name": "湛江",
+    "tc": "ZJZ",
+    "city": "湛江"
+  },
+  {
+    "name": "镇江",
+    "tc": "ZJH",
+    "city": "镇江"
+  },
+  {
+    "name": "张家界",
+    "tc": "DIQ",
+    "city": "张家界"
+  },
+  {
+    "name": "张家口",
+    "tc": "ZMP",
+    "city": "张家口"
+  },
+  {
+    "name": "张家口南",
+    "tc": "IXP",
+    "city": "张家口"
+  },
+  {
+    "name": "镇江南",
+    "tc": "ZEH",
+    "city": "镇江"
+  },
+  {
+    "name": "湛江西",
+    "tc": "ZWQ",
+    "city": "湛江"
+  },
+  {
+    "name": "张家界西",
+    "tc": "JXA",
+    "city": "张家界"
+  },
+  {
+    "name": "周口东",
+    "tc": "ZKF",
+    "city": "周口"
+  },
+  {
+    "name": "周口",
+    "tc": "ZKN",
+    "city": "周口"
+  },
+  {
+    "name": "驻马店",
+    "tc": "ZDN",
+    "city": "驻马店"
+  },
+  {
+    "name": "驻马店西",
+    "tc": "ZLN",
+    "city": "驻马店"
+  },
+  {
+    "name": "肇庆东",
+    "tc": "FCQ",
+    "city": "肇庆"
+  },
+  {
+    "name": "肇庆",
+    "tc": "ZVQ",
+    "city": "肇庆"
+  },
+  {
+    "name": "中山",
+    "tc": "ZSQ",
+    "city": "中山"
+  },
+  {
+    "name": "昭通",
+    "tc": "ZDW",
+    "city": "昭通"
+  },
+  {
+    "name": "中卫",
+    "tc": "ZWJ",
+    "city": "中卫"
+  },
+  {
+    "name": "中卫南",
+    "tc": "ZTJ",
+    "city": "中卫"
+  },
+  {
+    "name": "资阳北",
+    "tc": "FYW",
+    "city": "资阳"
+  },
+  {
+    "name": "张掖",
+    "tc": "ZYJ",
+    "city": "张掖"
+  },
+  {
+    "name": "遵义",
+    "tc": "ZYE",
+    "city": "遵义"
+  },
+  {
+    "name": "遵义西",
+    "tc": "ZIW",
+    "city": "遵义"
+  },
+  {
+    "name": "张掖西",
+    "tc": "ZEJ",
+    "city": "张掖"
+  },
+  {
+    "name": "漳州东",
+    "tc": "GOS",
+    "city": "漳州"
+  },
+  {
+    "name": "枣庄",
+    "tc": "ZEK",
+    "city": "枣庄"
+  },
+  {
+    "name": "漳州",
+    "tc": "ZUS",
+    "city": "漳州"
+  },
+  {
+    "name": "株洲",
+    "tc": "ZZQ",
+    "city": "株洲"
+  },
+  {
+    "name": "株洲南",
+    "tc": "KVQ",
+    "city": "株洲"
+  },
+  {
+    "name": "枣庄西",
+    "tc": "ZFK",
+    "city": "枣庄"
+  },
+  {
+    "name": "株洲西",
+    "tc": "ZAQ",
+    "city": "株洲"
+  },
+  {
+    "name": "本溪新城",
+    "tc": "BVT",
+    "city": "本溪"
+  },
+  {
+    "name": "白银市",
+    "tc": "BNJ",
+    "city": "白银"
+  },
+  {
+    "name": "巴中西",
+    "tc": "BZE",
+    "city": "巴中"
+  },
+  {
+    "name": "承德县北",
+    "tc": "IYP",
+    "city": "承德"
+  },
+  {
+    "name": "承德东",
+    "tc": "CCP",
+    "city": "承德"
+  },
+  {
+    "name": "朝阳南",
+    "tc": "CYD",
+    "city": "朝阳"
+  },
+  {
+    "name": "朝阳镇",
+    "tc": "CZL",
+    "city": "通化"
+  },
+  {
+    "name": "潮州",
+    "tc": "CKQ",
+    "city": "潮州"
+  },
+  {
+    "name": "长治南",
+    "tc": "CAF",
+    "city": "长治"
+  },
+  {
+    "name": "丹东西",
+    "tc": "RWT",
+    "city": "丹东"
+  },
+  {
+    "name": "东莞港",
+    "tc": "DGA",
+    "city": "东莞"
+  },
+  {
+    "name": "鄂州东",
+    "tc": "EFN",
+    "city": "鄂州"
+  },
+  {
+    "name": "抚州北",
+    "tc": "FBG",
+    "city": "抚州"
+  },
+  {
+    "name": "抚州东",
+    "tc": "FDG",
+    "city": "抚州"
+  },
+  {
+    "name": "桂林西",
+    "tc": "GEZ",
+    "city": "桂林"
+  },
+  {
+    "name": "冠豸山南",
+    "tc": "GSS",
+    "city": "龙岩"
+  },
+  {
+    "name": "淮安南",
+    "tc": "AMH",
+    "city": "淮安"
+  },
+  {
+    "name": "淮北北",
+    "tc": "PLH",
+    "city": "淮北"
+  },
+  {
+    "name": "鹤壁东",
+    "tc": "HFF",
+    "city": "鹤壁"
+  },
+  {
+    "name": "鹤壁",
+    "tc": "HAF",
+    "city": "鹤壁"
+  },
+  {
+    "name": "海东",
+    "tc": "LVO",
+    "city": "海东"
+  },
+  {
+    "name": "海东西",
+    "tc": "HDO",
+    "city": "海东"
+  },
+  {
+    "name": "黄冈",
+    "tc": "KGN",
+    "city": "黄冈"
+  },
+  {
+    "name": "黄冈西",
+    "tc": "KXN",
+    "city": "黄冈"
+  },
+  {
+    "name": "黄石北",
+    "tc": "KSN",
+    "city": "黄石"
+  },
+  {
+    "name": "含山南",
+    "tc": "HSU",
+    "city": "马鞍山"
+  },
+  {
+    "name": "河源北",
+    "tc": "HYA",
+    "city": "河源"
+  },
+  {
+    "name": "湖州东",
+    "tc": "HKU",
+    "city": "湖州"
+  },
+  {
+    "name": "湖州南浔",
+    "tc": "KIU",
+    "city": "湖州"
+  },
+  {
+    "name": "惠州西",
+    "tc": "VXQ",
+    "city": "惠州"
+  },
+  {
+    "name": "晋城北",
+    "tc": "JEF",
+    "city": "晋城"
+  },
+  {
+    "name": "江门东",
+    "tc": "JWQ",
+    "city": "江门"
+  },
+  {
+    "name": "佳木斯西",
+    "tc": "JUB",
+    "city": "佳木斯"
+  },
+  {
+    "name": "济宁北",
+    "tc": "MIK",
+    "city": "济宁"
+  },
+  {
+    "name": "济宁东",
+    "tc": "MNK",
+    "city": "济宁"
+  },
+  {
+    "name": "京山南",
+    "tc": "MIN",
+    "city": "京山"
+  },
+  {
+    "name": "揭阳",
+    "tc": "JYA",
+    "city": "揭阳"
+  },
+  {
+    "name": "揭阳机场",
+    "tc": "JUA",
+    "city": "揭阳"
+  },
+  {
+    "name": "揭阳南",
+    "tc": "JRQ",
+    "city": "揭阳"
+  },
+  {
+    "name": "焦作东",
+    "tc": "WEF",
+    "city": "焦作"
+  },
+  {
+    "name": "晋中",
+    "tc": "JZV",
+    "city": "晋中"
+  },
+  {
+    "name": "来宾",
+    "tc": "UBZ",
+    "city": "来宾"
+  },
+  {
+    "name": "六盘水东",
+    "tc": "LDE",
+    "city": "六盘水"
+  },
+  {
+    "name": "临沂东",
+    "tc": "UYK",
+    "city": "临沂"
+  },
+  {
+    "name": "泸州东",
+    "tc": "UDE",
+    "city": "泸州"
+  },
+  {
+    "name": "马鞍山",
+    "tc": "MAH",
+    "city": "马鞍山"
+  },
+  {
+    "name": "眉山",
+    "tc": "MSW",
+    "city": "眉山"
+  },
+  {
+    "name": "内江东",
+    "tc": "NDE",
+    "city": "内江"
+  },
+  {
+    "name": "庆阳山",
+    "tc": "QSJ",
+    "city": "白银"
+  },
+  {
+    "name": "泉州东",
+    "tc": "QRS",
+    "city": "泉州"
+  },
+  {
+    "name": "钦州",
+    "tc": "QRZ",
+    "city": "钦州"
+  },
+  {
+    "name": "泉州南",
+    "tc": "QNS",
+    "city": "泉州"
+  },
+  {
+    "name": "山南",
+    "tc": "SAO",
+    "city": "山南"
+  },
+  {
+    "name": "商丘东",
+    "tc": "SIF",
+    "city": "商丘"
+  },
+  {
+    "name": "商丘南",
+    "tc": "SPF",
+    "city": "商丘"
+  },
+  {
+    "name": "邵阳北",
+    "tc": "OVQ",
+    "city": "邵阳"
+  },
+  {
+    "name": "邵阳西",
+    "tc": "SXA",
+    "city": "邵阳"
+  },
+  {
+    "name": "石嘴山",
+    "tc": "OZJ",
+    "city": "石嘴山"
+  },
+  {
+    "name": "铜川北",
+    "tc": "TDY",
+    "city": "铜川"
+  },
+  {
+    "name": "通化县",
+    "tc": "TXL",
+    "city": "通化"
+  },
+  {
+    "name": "铜陵北",
+    "tc": "KXH",
+    "city": "铜陵"
+  },
+  {
+    "name": "唐山西",
+    "tc": "TSI",
+    "city": "唐山"
+  },
+  {
+    "name": "潍坊北",
+    "tc": "WJK",
+    "city": "潍坊"
+  },
+  {
+    "name": "威海北",
+    "tc": "WHK",
+    "city": "威海"
+  },
+  {
+    "name": "芜湖北",
+    "tc": "WBU",
+    "city": "芜湖"
+  },
+  {
+    "name": "威海南海",
+    "tc": "WRK",
+    "city": "威海"
+  },
+  {
+    "name": "芜湖南",
+    "tc": "RVH",
+    "city": "芜湖"
+  },
+  {
+    "name": "渭南南",
+    "tc": "WVY",
+    "city": "渭南"
+  },
+  {
+    "name": "渭南镇",
+    "tc": "WNJ",
+    "city": "天水"
+  },
+  {
+    "name": "无锡新区",
+    "tc": "IFH",
+    "city": "无锡"
+  },
+  {
+    "name": "温州北",
+    "tc": "URH",
+    "city": "温州"
+  },
+  {
+    "name": "许昌北",
+    "tc": "EBF",
+    "city": "许昌"
+  },
+  {
+    "name": "孝感",
+    "tc": "XGN",
+    "city": "孝感"
+  },
+  {
+    "name": "咸宁北",
+    "tc": "XRN",
+    "city": "咸宁"
+  },
+  {
+    "name": "咸宁东",
+    "tc": "XKN",
+    "city": "咸宁"
+  },
+  {
+    "name": "咸宁",
+    "tc": "XNN",
+    "city": "咸宁"
+  },
+  {
+    "name": "邢台",
+    "tc": "XTP",
+    "city": "邢台"
+  },
+  {
+    "name": "湘潭北",
+    "tc": "EDQ",
+    "city": "湘潭"
+  },
+  {
+    "name": "新乡南",
+    "tc": "ENF",
+    "city": "新乡"
+  },
+  {
+    "name": "咸阳北",
+    "tc": "EBY",
+    "city": "咸阳"
+  },
+  {
+    "name": "盐城大丰",
+    "tc": "YFU",
+    "city": "盐城"
+  },
+  {
+    "name": "阳江北",
+    "tc": "YLQ",
+    "city": "阳江"
+  },
+  {
+    "name": "烟台西",
+    "tc": "DCK",
+    "city": "烟台"
+  },
+  {
+    "name": "岳阳南",
+    "tc": "RWQ",
+    "city": "岳阳"
+  },
+  {
+    "name": "中山北",
+    "tc": "ZGQ",
+    "city": "中山"
+  },
+  {
+    "name": "枣庄东",
+    "tc": "ZNK",
+    "city": "枣庄"
+  },
+  {
+    "name": "白山东",
+    "tc": "BDL",
+    "city": "白山"
+  },
+  {
+    "name": "保山",
+    "tc": "BAM",
+    "city": "保山"
+  },
+  {
+    "name": "白银南",
+    "tc": "BVJ",
+    "city": "白银"
+  },
+  {
+    "name": "惠州南",
+    "tc": "KNA",
+    "city": "惠州"
+  },
+  {
+    "name": "商洛北",
+    "tc": "SBY",
+    "city": "商洛"
+  },
+  {
+    "name": "朔州东",
+    "tc": "OZV",
+    "city": "朔州"
+  },
+  {
+    "name": "宜宾东",
+    "tc": "EDE",
+    "city": "宜宾"
+  },
+  {
+    "name": "宜宾",
+    "tc": "YKE",
+    "city": "宜宾"
+  },
+  {
+    "name": "镇江关",
+    "tc": "ZEE",
+    "city": "阿坝藏族羌族自治州"
+  },
+  {
+    "name": "资阳西",
+    "tc": "ZIE",
+    "city": "资阳"
+  }
+]
