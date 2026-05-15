@@ -374,7 +374,7 @@ def _find_one_transfer(
             end_idx_stop = stops.index(to_tc)
             for s in stops[:end_idx_stop]:
                 tt = Timetable.get((train_no, s))
-                if tt and tt[0] is not None:
+                if tt and tt[1] is not None:
                     V_end.add(s)
 
     # 3. 候选换乘站
@@ -392,7 +392,7 @@ def _find_one_transfer(
             end_idx = stops.index(to_tc)
             for s in stops[:end_idx]:
                 tt = Timetable.get((train_no, s))
-                if tt and tt[0] is not None:
+                if tt and tt[1] is not None:
                     end_trains_at.setdefault(s, set()).add(train_no)
 
     for m_tc in candidates:
@@ -412,8 +412,8 @@ def _find_one_transfer(
             tt1_arrive = Timetable.get((t1, m_tc))
             if not tt1_depart or not tt1_arrive:
                 continue
-            dep1, _ = tt1_depart
-            _, arr1_m = tt1_arrive
+            _, dep1 = tt1_depart       # departure from from_tc
+            arr1_m, _ = tt1_arrive     # arrival at m_tc
             if dep1 is None or arr1_m is None:
                 continue
             if dep1 < earliest:
@@ -513,7 +513,7 @@ def _find_two_transfer(
             ei = stops.index(to_tc)
             for s in stops[:ei]:
                 tt = Timetable.get((train_no, s))
-                if tt and tt[0] is not None:
+                if tt and tt[1] is not None:
                     V_end.add(s)
                     end_trains_at.setdefault(s, set()).add(train_no)
 
@@ -549,8 +549,8 @@ def _find_two_transfer(
                     tt1_arr = Timetable.get((t1, m1))
                     if not tt1_dep or not tt1_arr:
                         continue
-                    dep1, _ = tt1_dep
-                    _, arr1_m1 = tt1_arr
+                    _, dep1 = tt1_dep
+                    arr1_m1, _ = tt1_arr
                     if dep1 is None or arr1_m1 is None or dep1 < earliest:
                         continue
                     if T2S[t1].index(from_tc) >= T2S[t1].index(m1):
