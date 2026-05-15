@@ -10,6 +10,7 @@ import json
 import os
 import pickle
 from bisect import bisect_left
+from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -116,17 +117,45 @@ def build_indexes(force: bool = False):
     Timetable: dict[tuple[str, str], tuple[int, int]] = {}  # (车次, 站) → (到达绝对分钟, 发车绝对分钟)
     SDI_raw: dict[str, list[tuple[str, int]]] = {}  # 站 → [(车次, 发车绝对分钟), ...]
 
-    for train_no, seq, tc, arr, dep, day_off in rows:
-        S2T.setdefault(tc, set()).add(train_no)
-        T2S.setdefault(train_no, []).append(tc)
+    # 预处理: 按车次分组, 自行推断跨日偏移 (DB 存的不准)
+    train_rows: dict[str, list[tuple]] = defaultdict(list)
+    for row in rows:
+        train_rows[row[0]].append(row)
 
-        arr_min = _to_abs_minutes(arr, day_off or 0)
-        dep_min = _to_abs_minutes(dep, day_off or 0)
-        if arr_min is not None or dep_min is not None:
-            Timetable[(train_no, tc)] = (arr_min, dep_min)
+    for train_no, stops in train_rows.items():
+        first_tc = stops[0][2]  # 始发站 telecode
+        S2T.setdefault(first_tc, set()).add(train_no)
+        T2S.setdefault(train_no, [])
+        day = 0
+        prev_dep: Optional[int] = None
 
-        if dep_min is not None:
-            SDI_raw.setdefault(tc, []).append((train_no, dep_min))
+        for _, seq, tc, arr, dep, _db_day_off in stops:
+            T2S[train_no].append(tc)
+            S2T.setdefault(tc, set()).add(train_no)
+
+            arr_loc = _to_abs_minutes(arr, 0)
+            dep_loc = _to_abs_minutes(dep, 0)
+
+            # 跨日1: 列车行进中跨越午夜 (本站到达时间早于前站发车)
+            if prev_dep is not None and arr_loc is not None and arr_loc < prev_dep:
+                day += 1
+
+            arr_abs = _to_abs_minutes(arr, day) if arr_loc is not None else None
+
+            # 跨日2: 在本站停靠跨越午夜 (如 23:50到/00:01发)
+            if arr_loc is not None and dep_loc is not None and dep_loc < arr_loc:
+                day += 1
+
+            dep_abs = _to_abs_minutes(dep, day) if dep_loc is not None else None
+
+            if dep_loc is not None:
+                prev_dep = dep_loc
+
+            if arr_abs is not None or dep_abs is not None:
+                Timetable[(train_no, tc)] = (arr_abs, dep_abs)
+
+            if dep_abs is not None:
+                SDI_raw.setdefault(tc, []).append((train_no, dep_abs))
 
     # 构建排序后的 SDI
     SDI: dict[str, list[tuple[str, int]]] = {}
@@ -151,6 +180,24 @@ def build_indexes(force: bool = False):
 
 
 # ===== 查询入口 =====
+
+def _compute_wait(prev_arr_global: int, next_dep_local: int, min_wait: int) -> tuple[int, int]:
+    """日历正确的衔接等待时间.
+
+    prev_arr_global:  前段到达的全局绝对分钟
+    next_dep_local:   后段发车的本地时间 (0-1439)
+    min_wait:         最少换乘等待分钟
+
+    Returns: (wait_minutes, dep_global)
+    
+    自动寻找最小 N 使得 next_dep_local + N*1440 >= prev_arr_global + min_wait.
+    """
+    need = prev_arr_global + min_wait
+    if next_dep_local >= need:
+        return next_dep_local - prev_arr_global, next_dep_local
+    N = (need - next_dep_local + 1439) // 1440  # ceil division
+    dep_global = next_dep_local + N * 1440
+    return dep_global - prev_arr_global, dep_global
 
 def _station_not_found(name: str, name_to_tc: dict) -> dict:
     """模糊匹配站名建议."""
@@ -372,8 +419,8 @@ def _find_one_transfer(
             if dep1 < earliest:
                 continue
 
-            # 接续时间边界
-            limit_time = arr1_m + min_wait
+            # 接续时间边界 (SDI 存本地时间, 所以取模)
+            limit_time = (arr1_m + min_wait) % 1440
 
             # 二分查找 m_tc 站最早发车 ≥ limit_time 的车次
             dep_list = [e[1] for e in sdi]
@@ -386,26 +433,38 @@ def _find_one_transfer(
             found = 0
             for i in range(pos, len(sdi)):
                 t2 = sdi[i][0]
-                dep2_abs = sdi[i][1]
+                _ = sdi[i][1]  # dep_local (仅用于二分, 实际时间用 Timetable)
                 if t2 not in end_set:
                     continue
                 if t2 == t1:
-                    continue  # 同一车次不是换乘
+                    continue
 
-                tt2 = Timetable.get((t2, m_tc))
+                # 用 Timetable 取值 (包含车次内部的 day_offset)
+                tt2_m = Timetable.get((t2, m_tc))
                 tt2_to = Timetable.get((t2, to_tc))
-                if not tt2 or not tt2_to:
+                if not tt2_m or not tt2_to:
                     continue
-                _, _dep2 = tt2
-                arr2, _ = tt2_to
-                if arr2 is None:
+                _, dep2_abs_train = tt2_m
+                arr2_abs_train, _ = tt2_to
+                if dep2_abs_train is None or arr2_abs_train is None:
                     continue
 
-                route = _make_transfer_route(
-                    idx, t1, from_tc, m_tc, dep1, arr1_m,
-                    t2, m_tc, to_tc, dep2_abs, arr2,
-                    min_wait,
-                )
+                # 日历正确衔接: 计算等待 + 全局发车时间
+                dep2_local = dep2_abs_train % 1440
+                wait, dep2_global = _compute_wait(arr1_m, dep2_local, min_wait)
+                shift = dep2_global - dep2_abs_train
+                arr2_global = arr2_abs_train + shift
+                total_dur = arr2_global - dep1
+
+                route = {
+                    "segments": [
+                        _make_seg(idx, t1, from_tc, m_tc, dep1, arr1_m),
+                        _make_seg(idx, t2, m_tc, to_tc, dep2_global, arr2_global),
+                    ],
+                    "transfer_count": 1,
+                    "total_duration": total_dur,
+                    "total_wait": wait,
+                }
                 results.append(route)
 
                 # 适度剪枝: 每个换乘站最多取 10 个合法后序方案
@@ -428,9 +487,9 @@ def _find_two_transfer(
     T2S = idx["T2S"]
     Timetable = idx["Timetable"]
     SDI = idx["SDI"]
-    tc_to_name = idx["tc_to_name"]
+    train_info = idx["train_info"]
 
-    # 1. 起点一阶辐射站 + 起点的出发车次
+    # 1. 起点一阶辐射
     trains_from_start: set[str] = set()
     V_start: set[str] = set()
     for train_no in S2T.get(from_tc, set()):
@@ -439,65 +498,44 @@ def _find_two_transfer(
             trains_from_start.add(train_no)
             si = stops.index(from_tc)
             for s in stops[si + 1:]:
-                V_start.add(s)
+                tt = Timetable.get((train_no, s))
+                if tt and tt[1] is not None:
+                    V_start.add(s)
 
-    # 2. 终点一阶辐射站 + 到达终点的车次
+    # 2. 终点一阶辐射
     trains_to_end: set[str] = set()
     V_end: set[str] = set()
+    end_trains_at: dict[str, set[str]] = {}
     for train_no in S2T.get(to_tc, set()):
         stops = T2S.get(train_no, [])
         if to_tc in stops:
             trains_to_end.add(train_no)
             ei = stops.index(to_tc)
             for s in stops[:ei]:
-                V_end.add(s)
+                tt = Timetable.get((train_no, s))
+                if tt and tt[0] is not None:
+                    V_end.add(s)
+                    end_trains_at.setdefault(s, set()).add(train_no)
 
-    # 3. 中间车次: 同时经过 V_start 和 V_end 的车次
-    mid_trains_from = set()
-    for s in V_start:
-        mid_trains_from |= S2T.get(s, set())
-
-    mid_trains_to = set()
-    for s in V_end:
-        mid_trains_to |= S2T.get(s, set())
-
-    T_mid = mid_trains_from & mid_trains_to
-    T_mid -= trains_from_start  # 排除已用作第一段的
-    T_mid -= trains_to_end       # 排除已用作尾段的
+    # 3. 中间车次: 同时经过 V_start 和 V_end (排除首尾)
+    mid_from = set.union(set(), *(S2T.get(s, set()) for s in V_start))
+    mid_to = set.union(set(), *(S2T.get(s, set()) for s in V_end))
+    T_mid = (mid_from & mid_to) - trains_from_start - trains_to_end
 
     if not T_mid:
         return []
 
-    # 4. 建立终点侧车的倒排 (用于链式校验尾段)
-    end_trains_at: dict[str, set[str]] = {}
-    for train_no in S2T.get(to_tc, set()):
-        stops = T2S.get(train_no, [])
-        if to_tc in stops:
-            ei = stops.index(to_tc)
-            for s in stops[:ei]:
-                tt = Timetable.get((train_no, s))
-                if tt and tt[0] is not None:
-                    end_trains_at.setdefault(s, set()).add(train_no)
-
-    # 5. 处理每个中间车次
-    results = []
+    # 4. 处理每个中间车次
+    results: list[dict] = []
     for t_mid in T_mid:
         stops_mid = T2S.get(t_mid, [])
-        # 候选 m1 (与 V_start 交集中, 索引靠前的站)
         m1_candidates = [s for s in stops_mid if s in V_start]
-        # 候选 m2 (与 V_end 交集中, 索引靠后的站)
         m2_candidates = [s for s in stops_mid if s in V_end]
-
         if not m1_candidates or not m2_candidates:
             continue
 
-        # 防逆行: m1 在 m2 之前
-        m1_idx_first = stops_mid.index(m1_candidates[0])
-        m2_idx_last = stops_mid.index(m2_candidates[-1])
-        if m1_idx_first >= m2_idx_last:
-            continue
-
-        # 选择索引靠前的 m1 和索引靠后的 m2 (最大化有效区间)
+        m1_candidates = m1_candidates[:3]
+        m2_candidates = m2_candidates[-3:]
         for m1 in m1_candidates:
             idx_m1 = stops_mid.index(m1)
             for m2 in m2_candidates:
@@ -505,7 +543,7 @@ def _find_two_transfer(
                 if idx_m1 >= idx_m2:
                     continue
 
-                # 第一段: from_tc → m1 (选用任意以 from_tc 为起点的车次)
+                # 第一段: from_tc → m1
                 for t1 in trains_from_start:
                     tt1_dep = Timetable.get((t1, from_tc))
                     tt1_arr = Timetable.get((t1, m1))
@@ -515,34 +553,33 @@ def _find_two_transfer(
                     _, arr1_m1 = tt1_arr
                     if dep1 is None or arr1_m1 is None or dep1 < earliest:
                         continue
-                    # 逆行检查
-                    stops1 = T2S.get(t1, [])
-                    if stops1.index(from_tc) >= stops1.index(m1):
+                    if T2S[t1].index(from_tc) >= T2S[t1].index(m1):
                         continue
 
-                    # 判断能否赶上 t_mid 在 m1 的发车
                     tt_mid_m1 = Timetable.get((t_mid, m1))
                     if not tt_mid_m1:
                         continue
-                    _, dep_mid_m1 = tt_mid_m1
-                    if dep_mid_m1 is None:
-                        continue
-                    if arr1_m1 + min_wait > dep_mid_m1:
+                    _, dep_mid_train = tt_mid_m1
+                    if dep_mid_train is None:
                         continue
 
-                    # 第二段: t_mid 从 m1 到 m2
+                    dep_mid_local = dep_mid_train % 1440
+                    wait_1, dep_mid_global = _compute_wait(arr1_m1, dep_mid_local, min_wait)
+                    shift_mid = dep_mid_global - dep_mid_train
+
                     tt_mid_m2 = Timetable.get((t_mid, m2))
                     if not tt_mid_m2:
                         continue
-                    arr_mid_m2, _ = tt_mid_m2
-                    if arr_mid_m2 is None:
+                    arr_mid_train, _ = tt_mid_m2
+                    if arr_mid_train is None:
                         continue
+                    arr_mid_global = arr_mid_train + shift_mid
 
-                    # 第三段: m2 → to_tc
-                    limit_2 = arr_mid_m2 + min_wait
+                    # 衔接 2: arr_mid_global → t2@m2
                     sdi_m2 = SDI.get(m2)
                     if not sdi_m2:
                         continue
+                    limit_2 = (arr_mid_global + min_wait) % 1440
                     dep_list = [e[1] for e in sdi_m2]
                     pos = bisect_left(dep_list, limit_2)
                     if pos >= len(sdi_m2):
@@ -550,42 +587,40 @@ def _find_two_transfer(
 
                     end_set = end_trains_at.get(m2, set())
                     found = 0
-                    for i in range(pos, min(pos + 10, len(sdi_m2))):
+                    for i in range(pos, min(pos + 8, len(sdi_m2))):
                         t2 = sdi_m2[i][0]
-                        dep2 = sdi_m2[i][1]
                         if t2 not in end_set or t2 == t1 or t2 == t_mid:
                             continue
                         tt2_m2 = Timetable.get((t2, m2))
                         tt2_to = Timetable.get((t2, to_tc))
                         if not tt2_m2 or not tt2_to:
                             continue
-                        _, _dept2 = tt2_m2
-                        arr2_to, _ = tt2_to
-                        if arr2_to is None:
+                        _, dep2_train = tt2_m2
+                        arr2_train, _ = tt2_to
+                        if dep2_train is None or arr2_train is None:
                             continue
 
-                        wait_1 = dep_mid_m1 - arr1_m1
-                        wait_2 = dep2 - arr_mid_m2
-                        total_wait = wait_1 + wait_2
-                        total_dur = arr2_to - dep1
-                        segs = [
-                            _make_seg(idx, t1, from_tc, m1, dep1, arr1_m1),
-                            _make_seg(idx, t_mid, m1, m2, dep_mid_m1, arr_mid_m2),
-                            _make_seg(idx, t2, m2, to_tc, dep2, arr2_to),
-                        ]
+                        dep2_local = dep2_train % 1440
+                        wait_2, dep2_global = _compute_wait(arr_mid_global, dep2_local, min_wait)
+                        shift_2 = dep2_global - dep2_train
+                        arr2_global = arr2_train + shift_2
+
+                        total_dur = arr2_global - dep1
                         results.append({
-                            "segments": segs,
+                            "segments": [
+                                _make_seg(idx, t1, from_tc, m1, dep1, arr1_m1),
+                                _make_seg(idx, t_mid, m1, m2, dep_mid_global, arr_mid_global),
+                                _make_seg(idx, t2, m2, to_tc, dep2_global, arr2_global),
+                            ],
                             "transfer_count": 2,
                             "total_duration": total_dur,
-                            "total_wait": total_wait,
+                            "total_wait": wait_1 + wait_2,
                         })
                         found += 1
                         if found >= 3:
                             break
 
-                    # 对每对 (m1, m2) 只处理 t1 中的前几个避免膨胀
-                    break  # 只为每个 m1,m2 组合找第一段的最早发现
-                break  # 只用第一个 m1 (最早可达的)
+                    break  # 每个 (m1,m2) 只取一个 t1
 
     results.sort(key=lambda r: r["total_duration"])
     return results[:limit]
@@ -607,22 +642,6 @@ def _make_seg(idx, train_no, from_tc, to_tc, dep_abs, arr_abs) -> dict:
         "arrive_time": _to_time_str(arr_abs),
         "depart_abs": dep_abs,
         "arrive_abs": arr_abs,
-    }
-
-
-def _make_transfer_route(
-    idx, t1, from_tc, m_tc, dep1, arr1, t2, m_tc2, to_tc, dep2, arr2, min_wait
-) -> dict:
-    wait = dep2 - arr1
-    total_dur = arr2 - dep1
-    return {
-        "segments": [
-            _make_seg(idx, t1, from_tc, m_tc, dep1, arr1),
-            _make_seg(idx, t2, m_tc2, to_tc, dep2, arr2),
-        ],
-        "transfer_count": 1,
-        "total_duration": total_dur,
-        "total_wait": wait,
     }
 
 
