@@ -1,4 +1,3 @@
-data/railway.db
 crawler/__pycache__
 data/index_cache.pkl
 __pycache__/
