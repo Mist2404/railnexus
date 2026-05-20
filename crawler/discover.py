@@ -218,16 +218,20 @@ async def discover_trains(
 
                 found_new = False
                 for r in results:
-                    # queryG 返回的结果是多行 URL 编码, 最后一行是管道分隔的列车数据
+                    # queryG 返回的结果是多行 URL 编码
+                    # 倒序查找所有含管道分隔的行, 尝试解析直到成功
                     decoded = unquote(r)
-                    pipe_line = ""
+                    pipe_lines = []
                     for line in decoded.splitlines():
                         line = line.strip()
                         if "|预订|" in line or "|" in line:
-                            pipe_line = line
-                    if not pipe_line:
-                        continue
-                    info = _parse_result(pipe_line)
+                            pipe_lines.append(line)
+                    # 从最后一行开始尝试 (正常情况数据在最后一行)
+                    info = None
+                    for pipe_line in reversed(pipe_lines):
+                        info = _parse_result(pipe_line)
+                        if info and info["train_no"]:
+                            break
                     if not info or not info["train_no"]:
                         continue
 

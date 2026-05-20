@@ -89242,5 +89242,65 @@
     "depart": "16:00",
     "arrive": "22:33",
     "duration": "06:33"
+  },
+  {
+    "train_no": "6i000D31260P",
+    "train_number": "D3126",
+    "train_type": "D",
+    "from_tc": "IOQ",
+    "to_tc": "YLH",
+    "from_station": "深圳北",
+    "to_station": "YLH",
+    "depart": "06:59",
+    "arrive": "10:23",
+    "duration": "03:24"
+  },
+  {
+    "train_no": "6i000D229410",
+    "train_number": "D2294",
+    "train_type": "D",
+    "from_tc": "IOQ",
+    "to_tc": "NKH",
+    "from_station": "深圳北",
+    "to_station": "NKH",
+    "depart": "08:04",
+    "arrive": "11:18",
+    "duration": "03:14"
+  },
+  {
+    "train_no": "6i0000D66205",
+    "train_number": "D662",
+    "train_type": "D",
+    "from_tc": "IOQ",
+    "to_tc": "XMS",
+    "from_station": "深圳北",
+    "to_station": "厦门",
+    "depart": "09:54",
+    "arrive": "12:54",
+    "duration": "03:00"
+  },
+  {
+    "train_no": "6l000D242109",
+    "train_number": "D2424",
+    "train_type": "D",
+    "from_tc": "DNA",
+    "to_tc": "SNH",
+    "from_station": "DNA",
+    "to_station": "SNH",
+    "depart": "11:13",
+    "arrive": "14:25",
+    "duration": "03:12"
+  },
+  {
+    "train_no": "6i0000D66601",
+    "train_number": "D666",
+    "train_type": "D",
+    "from_tc": "IOQ",
+    "to_tc": "XKS",
+    "from_station": "深圳北",
+    "to_station": "厦门北",
+    "depart": "16:30",
+    "arrive": "19:07",
+    "duration": "02:37"
   }
 ]
