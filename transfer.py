@@ -377,8 +377,11 @@ def _find_one_transfer(
                 if tt and tt[1] is not None:
                     V_end.add(s)
 
-    # 3. 候选换乘站
-    candidates = V_start & V_end
+    # 3. 候选换乘站 (排除只有单趟车停靠的站: 同车直达不算换乘, 不可能产生方案)
+    candidates = {
+        m for m in (V_start & V_end)
+        if len(S2T.get(m, set())) >= 2
+    }
     if not candidates:
         return []
 
@@ -529,8 +532,15 @@ def _find_two_transfer(
     results: list[dict] = []
     for t_mid in T_mid:
         stops_mid = T2S.get(t_mid, [])
-        m1_candidates = [s for s in stops_mid if s in V_start]
-        m2_candidates = [s for s in stops_mid if s in V_end]
+        # 排除单趟车停靠的站 (前段/后段车必与中间车不同, 故需 ≥2 趟车)
+        m1_candidates = [
+            s for s in stops_mid
+            if s in V_start and len(S2T.get(s, set())) >= 2
+        ]
+        m2_candidates = [
+            s for s in stops_mid
+            if s in V_end and len(S2T.get(s, set())) >= 2
+        ]
         if not m1_candidates or not m2_candidates:
             continue
 
