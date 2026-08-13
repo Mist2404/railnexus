@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RailNexus 铁路换乘查询</title>
+  <style>
+    :root {
+      --primary: #1976d2;
+      --bg: #f5f6f8;
+      --card: #ffffff;
+      --border: #e3e6ea;
+      --text: #2c3e50;
+      --muted: #7f8c9b;
+      --accent: #e67e22;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                   "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    header h1 { font-size: 22px; font-weight: 600; }
+    header p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+
+    .search-panel {
+      max-width: 720px;
+      margin: -20px auto 0;
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: flex-end;
+    }
+    .field { flex: 1; min-width: 180px; position: relative; }
+    .field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .field input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 15px;
+      outline: none;
+      transition: border-color .15s;
+    }
+    .field input:focus { border-color: var(--primary); }
+    .swap-btn {
+      align-self: center;
+      width: 34px; height: 34px;
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .search-btn {
+      padding: 10px 28px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+    .search-btn:hover { opacity: 0.9; }
+    .search-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .suggest {
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-height: 260px;
+      overflow-y: auto;
+      z-index: 10;
+      display: none;
+    }
+    .suggest.active { display: block; }
+    .suggest-item {
+      padding: 9px 12px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .suggest-item:hover, .suggest-item.selected { background: #eef4fb; }
+    .suggest-item .tc { float: right; color: var(--muted); font-size: 12px; }
+
+    .container { max-width: 860px; margin: 24px auto; padding: 0 16px; }
+    .status { text-align: center; color: var(--muted); font-size: 14px; margin: 16px 0; }
+    .error {
+      max-width: 720px; margin: 16px auto;
+      background: #fdecea; color: #c0392b;
+      padding: 12px 16px; border-radius: 8px; font-size: 14px;
+    }
+
+    .tier { margin-bottom: 20px; }
+    .tier-header {
+      display: flex; align-items: center;
+      padding: 12px 16px;
+      background: var(--card);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px; font-weight: 600;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .tier-header .count {
+      margin-left: 8px;
+      background: var(--primary); color: #fff;
+      border-radius: 10px; font-size: 12px; padding: 1px 8px;
+    }
+    .tier-header .arrow { margin-left: auto; color: var(--muted); transition: transform .2s; }
+    .tier.open .arrow { transform: rotate(180deg); }
+
+    .route-card {
+      background: var(--card);
+      border-radius: 8px;
+      margin-top: 8px;
+      padding: 14px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .route-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .route-meta .dur { color: var(--accent); font-weight: 700; }
+    .segment { display: flex; align-items: center; padding: 6px 0; }
+    .seg-train {
+      min-width: 56px; text-align: center;
+      background: #eef4fb; color: var(--primary);
+      border-radius: 4px; font-size: 13px; font-weight: 600; padding: 3px 6px;
+    }
+    .seg-station { flex: 1; padding: 0 12px; }
+    .seg-station .name { font-size: 14px; }
+    .seg-station .time { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .seg-arrow { color: var(--muted); font-size: 14px; }
+    .transfer-wait {
+      text-align: center;
+      font-size: 12px; color: var(--accent);
+      padding: 4px 0;
+    }
+    .transfer-wait::before, .transfer-wait::after {
+      content: "─"; color: var(--border); margin: 0 8px;
+    }
+    .tier-body { display: none; }
+    .tier.open .tier-body { display: block; }
+    .empty { color: var(--muted); text-align: center; padding: 12px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RailNexus 铁路换乘查询</h1>
+    <p>直达 / 一次换乘 / 两次换乘 方案搜索</p>
+  </header>
+
+  <div class="search-panel">
+    <div class="field">
+      <label>出发站</label>
+      <input id="fromInput" placeholder="如: 北京南" autocomplete="off">
+      <div class="suggest" id="fromSuggest"></div>
+    </div>
+    <button class="swap-btn" id="swapBtn" title="交换起讫站">⇄</button>
+    <div class="field">
+      <label>到达站</label>
+      <input id="toInput" placeholder="如: 上海虹桥" autocomplete="off">
+      <div class="suggest" id="toSuggest"></div>
+    </div>
+    <div class="field">
+      <label>最早出发时间</label>
+      <input id="departInput" type="time" value="08:00">
+    </div>
+    <button class="search-btn" id="searchBtn">查询</button>
+  </div>
+
+  <div id="status" class="status"></div>
+  <div id="error" class="error" style="display:none"></div>
+
+  <div class="container" id="results" style="display:none">
+    <div class="tier" id="tier-direct"></div>
+    <div class="tier" id="tier-one"></div>
+    <div class="tier" id="tier-two"></div>
+  </div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    let fromTc = '', toTc = '';
+
+    // ===== 站名自动补全 =====
+    function debounce(fn, ms) {
+      let t;
+      return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+    }
+
+    function setupAutocomplete(input, suggestBox, onPick) {
+      input.addEventListener('input', debounce(async () => {
+        const q = input.value.trim();
+        if (q.length < 1) { suggestBox.classList.remove('active'); return; }
+        const resp = await fetch('/api/stations?q=' + encodeURIComponent(q));
+        const data = await resp.json();
+        renderSuggest(data, suggestBox, onPick, input);
+      }, 300));
+
+      input.addEventListener('blur', () => {
+        setTimeout(() => suggestBox.classList.remove('active'), 150);
+      });
+    }
+
+    function renderSuggest(items, box, onPick, input) {
+      box.innerHTML = '';
+      if (!items.length) { box.classList.remove('active'); return; }
+      items.forEach(it => {
+        const div = document.createElement('div');
+        div.className = 'suggest-item';
+        div.innerHTML = `<span>${it.name}</span><span class="tc">${it.tc}</span>`;
+        div.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          onPick(it);
+          box.classList.remove('active');
+        });
+        box.appendChild(div);
+      });
+      box.classList.add('active');
+    }
+
+    setupAutocomplete($('fromInput'), $('fromSuggest'), (it) => {
+      $('fromInput').value = it.name; fromTc = it.tc;
+    });
+    setupAutocomplete($('toInput'), $('toSuggest'), (it) => {
+      $('toInput').value = it.name; toTc = it.tc;
+    });
+
+    $('swapBtn').addEventListener('click', () => {
+      const tmp = $('fromInput').value;
+      $('fromInput').value = $('toInput').value;
+      $('toInput').value = tmp;
+      const t2 = fromTc; fromTc = toTc; toTc = t2;
+    });
+
+    // ===== 查询 =====
+    $('searchBtn').addEventListener('click', doSearch);
+    $('fromInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+    $('toInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+
+    async function doSearch() {
+      const from = $('fromInput').value.trim();
+      const to = $('toInput').value.trim();
+      const depart = $('departInput').value || '00:00';
+      if (!from || !to) {
+        showError('请输入出发站和到达站');
+        return;
+      }
+      $('error').style.display = 'none';
+      $('status').textContent = '查询中...';
+      $('results').style.display = 'none';
+      $('searchBtn').disabled = true;
+
+      try {
+        const t0 = performance.now();
+        const resp = await fetch('/api/search', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ from_station: from, to_station: to, depart }),
+        });
+        const data = await resp.json();
+        const elapsed = ((performance.now() - t0) / 1000).toFixed(2);
+
+        if (data.error) {
+          showError(data.error + (data.hint ? ' — ' + data.hint : ''));
+          return;
+        }
+        renderResults(data);
+        $('status').textContent = `查询完成 · 耗时 ${elapsed}s`;
+      } catch (err) {
+        showError('请求失败: ' + err.message);
+      } finally {
+        $('searchBtn').disabled = false;
+      }
+    }
+
+    function showError(msg) {
+      $('status').textContent = '';
+      $('error').textContent = msg;
+      $('error').style.display = 'block';
+    }
+
+    // ===== 结果渲染 =====
+    function renderResults(data) {
+      renderTier('tier-direct', '直达', data.direct);
+      renderTier('tier-one', '一次换乘', data.one_transfer);
+      renderTier('tier-two', '两次换乘', data.two_transfer);
+      $('results').style.display = 'block';
+    }
+
+    function renderTier(id, title, routes) {
+      const tier = $(id);
+      const bodyId = id + '-body';
+      tier.innerHTML = `
+        <div class="tier-header" onclick="toggleTier('${id}')">
+          <span>${title}</span>
+          <span class="count">${routes.length}</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="tier-body" id="${bodyId}"></div>
+      `;
+      const body = $(bodyId);
+      if (!routes.length) {
+        body.innerHTML = '<div class="empty">无方案</div>';
+      } else {
+        routes.forEach(r => body.appendChild(renderRoute(r)));
+      }
+      if (routes.length) tier.classList.add('open');
+    }
+
+    function renderRoute(r) {
+      const card = document.createElement('div');
+      card.className = 'route-card';
+
+      const meta = document.createElement('div');
+      meta.className = 'route-meta';
+      meta.innerHTML = `总耗时 <span class="dur">${r.total_duration}</span>` +
+        (r.transfer_count > 0 ? ` · 换乘等待 ${r.total_wait}` : '');
+      card.appendChild(meta);
+
+      r.segments.forEach((seg, i) => {
+        const segDiv = document.createElement('div');
+        segDiv.className = 'segment';
+        segDiv.innerHTML = `
+          <span class="seg-train">${seg.train}</span>
+          <span class="seg-station">
+            <div class="name">${seg.from} <span class="time">${seg.depart}</span></div>
+            <div class="name">${seg.to} <span class="time">${seg.arrive}</span></div>
+          </span>
+          <span class="seg-arrow">→</span>
+        `;
+        card.appendChild(segDiv);
+
+        if (i < r.segments.length - 1) {
+          const wait = document.createElement('div');
+          wait.className = 'transfer-wait';
+          wait.textContent = '换乘';
+          card.appendChild(wait);
+        }
+      });
+
+      return card;
+    }
+
+    function toggleTier(id) {
+      $(id).classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
