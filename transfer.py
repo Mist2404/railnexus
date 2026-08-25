@@ -199,6 +199,35 @@ def _compute_wait(prev_arr_global: int, next_dep_local: int, min_wait: int) -> t
     dep_global = next_dep_local + N * 1440
     return dep_global - prev_arr_global, dep_global
 
+
+def _is_redundant(idx, t1, t_mid, t2, from_tc, m1, m2, to_tc) -> bool:
+    """判断换乘方案是否被更短方案等价覆盖.
+
+    t_mid 为 None 时按 1 次换乘判定; 否则按 2 次换乘判定.
+    满足任一规则即冗余, 调用方应直接丢弃该方案.
+    """
+    T2S = idx["T2S"]
+    st1 = T2S.get(t1, [])
+    st2 = T2S.get(t2, [])
+
+    def passes(stops, a, b):
+        return a in stops and b in stops and stops.index(a) < stops.index(b)
+
+    # 1 次换乘: t1 直达终点, 或 t2 从起点即可上车
+    if t_mid is None:
+        return passes(st1, from_tc, to_tc) or passes(st2, from_tc, m1)
+
+    # 2 次换乘: 6 条规则全查
+    stm = T2S.get(t_mid, [])
+    return (
+        passes(st1, from_tc, to_tc) or   # t1 直达
+        passes(st2, from_tc, m2) or      # t2 经过起点 → 直达
+        passes(stm, from_tc, m1) or      # t_mid 经过起点 → 等价 1 次换乘 (t_mid+t2)
+        passes(stm, m2, to_tc) or        # t_mid 到终点 → 等价 1 次换乘 (t1+t_mid)
+        passes(st1, m1, m2) or           # t1 经过 m2 → 等价 1 次换乘 (t1+t2)
+        passes(st2, m1, m2)              # t2 经过 m1 → 等价 1 次换乘 (t1+t2)
+    )
+
 def _station_not_found(name: str, name_to_tc: dict) -> dict:
     """模糊匹配站名建议."""
     suggestions = [n for n in name_to_tc if name in n][:8]
@@ -459,6 +488,10 @@ def _find_one_transfer(
                 arr2_global = arr2_abs_train + shift
                 total_dur = arr2_global - dep1
 
+                # 剔除冗余: 被更短方案等价覆盖 (t1 直达 或 t2 经过起点)
+                if _is_redundant(idx, t1, None, t2, from_tc, m_tc, None, to_tc):
+                    continue
+
                 route = {
                     "segments": [
                         _make_seg(idx, t1, from_tc, m_tc, dep1, arr1_m),
@@ -616,6 +649,9 @@ def _find_two_transfer(
                         arr2_global = arr2_train + shift_2
 
                         total_dur = arr2_global - dep1
+                        # 剔除冗余: 被直达或 1 次换乘方案等价覆盖
+                        if _is_redundant(idx, t1, t_mid, t2, from_tc, m1, m2, to_tc):
+                            continue
                         results.append({
                             "segments": [
                                 _make_seg(idx, t1, from_tc, m1, dep1, arr1_m1),
