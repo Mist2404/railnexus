@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RailNexus 铁路换乘查询</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="map.css">
   <style>
     :root {
       --primary: #1976d2;
@@ -183,6 +185,14 @@
     <button class="search-btn" id="searchBtn">查询</button>
   </div>
 
+  <div class="container">
+    <div class="map-hint">
+      <span class="badge">地图选站</span>
+      点击城市 → 选择该城站点为出发站；再次点击站点为到达站。放大后可看各站分布。
+    </div>
+    <div id="map"></div>
+  </div>
+
   <div id="status" class="status"></div>
   <div id="error" class="error" style="display:none"></div>
 
@@ -359,6 +369,29 @@
     function toggleTier(id) {
       $(id).classList.toggle('open');
     }
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="map.js"></script>
+  <script>
+    // 地图初始化 + 弹出站按钮点击事件委托
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.RailMap) {
+        RailMap.init('map');
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.map-sta-btn');
+          if (btn && window.RailMap.selectByTc) {
+            fetch('/api/map').then(r => r.json()).then(d => {
+              const city = btn.dataset.city;
+              const idx = parseInt(btn.dataset.idx, 10);
+              const c = d.cities.find(x => x.name === city);
+              if (!c) return;
+              const tc = c.station_tcs[idx];
+              if (tc) RailMap.selectByTc(tc);
+            });
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>

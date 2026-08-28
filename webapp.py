@@ -5,6 +5,7 @@
 访问: http://localhost:8000
 """
 
+import json
 import os
 
 from fastapi import FastAPI
@@ -15,6 +16,7 @@ from pydantic import BaseModel
 from transfer import build_indexes, search, format_minutes
 
 STATIC_DIR = os.path.join(os.path.dirname(__file__), "static")
+MAP_DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "map_data.json")
 
 app = FastAPI(title="RailNexus", description="中国铁路换乘查询")
 
@@ -104,6 +106,15 @@ def do_search(req: SearchRequest):
         "one_transfer": [_format_route(r) for r in result["one_transfer"]],
         "two_transfer": [_format_route(r) for r in result["two_transfer"]],
     }
+
+
+@app.get("/api/map")
+def get_map_data():
+    """返回地图数据 (城市级 + 站点级 + 铁路网边)."""
+    if os.path.exists(MAP_DATA_PATH):
+        with open(MAP_DATA_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"cities": [], "stations": [], "edges": []}
 
 
 app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")
